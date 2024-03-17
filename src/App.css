@@ -13,6 +13,7 @@
 .debug-button {
     grid-column: 1 / -1;
     justify-self: center;
+    margin-top: 1rem;
 }
 
 .flash-wrapper {
@@ -20,7 +21,6 @@
     grid-template-columns: auto auto;
     gap: 0.5rem;
     width: fit-content;
-    /* justify-content: start; */
 }
 
 .flash-wrapper * {
@@ -56,4 +56,48 @@ input[type="radio"].flash-input:checked+label.flash-label {
 
 .checkboxes-wrapper label {
     justify-self: start;
+}
+
+.switch-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: fit-content;
+}
+
+.switch {
+    display: flex;
+    position: relative;
+    border: #0060df solid 2px;
+    border-radius: 1.2rem;
+    padding: 0;
+    width: 2.5rem;
+    height: 1.2rem;
+    transition: color 0.2s;
+}
+
+.switch input {
+    position: absolute;
+    margin: 0;
+    inset: 50% auto;
+    width: 100%;
+    transition: transform 0.2s;
+}
+
+.switch input:checked {
+    pointer-events: none;
+}
+
+.switch input:first-child:checked {
+    visibility: hidden;
+}
+
+.switch input:first-child,
+.switch input:last-child:checked {
+    transform: translateY(-50%) translateX(25%);
+}
+
+.switch input:first-child:checked,
+.switch input:last-child {
+    transform: translateY(-50%) translateX(-25%);
 }
