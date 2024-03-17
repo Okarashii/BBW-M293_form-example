@@ -63,41 +63,43 @@ input[type="radio"].flash-input:checked+label.flash-label {
     flex-direction: row;
     gap: 0.5rem;
     width: fit-content;
+    align-items: center;
 }
 
-.switch {
+.switch-button {
+    --animation-duration: 300ms;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.25rem;
+    border-radius: 1.25rem;
     position: relative;
     border: #0060df solid 2px;
-    border-radius: 1.2rem;
-    padding: 0;
-    width: 2.5rem;
-    height: 1.2rem;
-    transition: color 0.2s;
+    transition: background-color var(--animation-duration);
 }
 
-.switch input {
-    position: absolute;
-    margin: 0;
-    inset: 50% auto;
+.switch-button input[type="checkbox"]:checked+label {
+    background-color: white;
+    transform: translateX(-50%);
+}
+.switch-button input[type="checkbox"]:not(:checked)+label {
+    transform: translateX(50%);
+}
+
+.switch-button input {
+    height: 100%;
     width: 100%;
-    transition: transform 0.2s;
+    border-radius: 1.25rem;
+    appearance: none;
+    margin: 0;
 }
 
-.switch input:checked {
-    pointer-events: none;
-}
-
-.switch input:first-child:checked {
-    visibility: hidden;
-}
-
-.switch input:first-child,
-.switch input:last-child:checked {
-    transform: translateY(-50%) translateX(25%);
-}
-
-.switch input:first-child:checked,
-.switch input:last-child {
-    transform: translateY(-50%) translateX(-25%);
+.switch-dot {
+    position: absolute;
+    border-radius: 100%;
+    background-color: #0060df;
+    height: calc(100% - 2px);
+    aspect-ratio: 1/1;
+    transition: all var(--animation-duration);
 }

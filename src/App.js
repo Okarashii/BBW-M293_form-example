@@ -56,23 +56,19 @@ function CheckBoxes() {
 
 // Aufgabe 1.2a
 function ScreenOrientation() {
-    const [orientation, setOrientation] = useState("landscape");
-
-    const handleClick = () => {
-        setOrientation((val) => val === "landscape" ? "portrait" : "landscape");
-    }
+    const [isLandscape, setIsLandscape] = useState(true);
 
     return (
         <>
             <div className="switch-wrapper">
-                <label htmlFor="landscape">Landscape</label>
-                <span className="switch" style={{backgroundColor: orientation === "landscape" ? "#0060df" : "transparent"}}>
-                    <input type="radio" id="landscape" name="screenOrientation" checked={orientation === "landscape"} onChange={handleClick}/>
-                    <input type="radio" id="portrait" name="screenOrientation" checked={orientation === "portrait"} onChange={handleClick}/>
-                </span>
-                <label htmlFor="portrait">Portrait</label>
+                <label htmlFor="orientation">Landscape</label>
+                <div className="switch-button" style={{backgroundColor: isLandscape ? "#0060df" : "white"}}>
+                    <input type="checkbox" id="orientation" name="orientation" checked={isLandscape} onChange={() => setIsLandscape((val) => !val)}/>
+                    <label htmlFor="orientation" className="switch-dot"/>
+                </div>
+                <label htmlFor="orientation">Portrait</label>
             </div>
-            <DebugButton log={[["Screen Orientation", orientation]]}/>
+            <DebugButton log={[["Screen Orientation", isLandscape]]}/>
         </>
     );
 }
