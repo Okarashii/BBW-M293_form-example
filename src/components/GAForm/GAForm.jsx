@@ -45,7 +45,7 @@ export default function GAForm({priceTable}) {
         <>
             <form className="ga-wrapper">
                 <select id="conditions" name="conditions" className='ga-conditions' required>
-                    <option disabled>Bitte Auswählen</option>
+                    <option selected disabled>Bitte Auswählen</option>
                     {priceTable.map(({label}) => {return (
                         <option value={label} key={label} onClick={() => setConditions(label)}>{label}</option>
                     )})}
