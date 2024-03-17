@@ -1,11 +1,39 @@
 .app {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
-.title {
-  width: fit-content;
+.app-title {
+    width: fit-content;
+}
+
+.flash-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+    width: fit-content;
+    justify-content: start;
+}
+
+.flash-wrapper * {
+    width: fit-content;
+}
+
+input[type="radio"].flash-input:checked+label.flash-label {
+    font-weight: bolder;
+}
+
+.checkboxes-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+    width: fit-content;
+    justify-content: start;
+}
+
+.checkboxes-wrapper > * {
+    width: fit-content;
 }
