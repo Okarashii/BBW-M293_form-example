@@ -1,10 +1,16 @@
 import "./App.css";
 import { useState } from "react";
 
-function debug(output) {
-    for(const [label, value] of output) {
-        console.log(`${label}:`, value);
+function DebugButton({log}) {
+    function debug(output) {
+        for(const [label, value] of output) {
+            console.log(`${label}:`, value);
+        }
     }
+
+    return (
+        <button className="debug-button" onClick={() => debug(log)}>Debug Output</button>
+    )
 }
 
 // Aufgabe 1a
@@ -22,7 +28,7 @@ function Flash() {
                 Blitz aus
             </label>
 
-            <button onClick={() => debug([["Flash", flash]])}>Test</button>
+            <DebugButton log={[["Flash", flash]]}/>
         </div>
     );
 }
@@ -40,7 +46,7 @@ function CheckBoxes() {
             <input id="cb-onions" type="checkbox" checked={extraOnions} onChange={() => setExtraOnions((o) => !o)}/>
             <label htmlFor="cb-onions">Extra Zwiebeln</label>
 
-            <button onClick={() => debug([["Extra Cheese", extraCheese],["Extra Onions", extraOnions]])}>Test</button>
+            <DebugButton log={[["Extra Cheese", extraCheese],["Extra Onions", extraOnions]]}/>
         </div>
     );
 }
