@@ -1,0 +1,75 @@
+.ga-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.5rem;
+    row-gap: 0.25rem;
+    width:fit-content;
+    height:fit-content;
+    align-items: center;
+}
+
+/* .ga-wrapper :nth-child(odd) {
+    place-self: end;
+}
+
+.ga-wrapper :nth-child(even) {
+    place-self: start;
+    height: 100%;
+} */
+
+.ga-conditions {
+    grid-column: 1 / -1;
+    align-self: center;
+}
+
+/* ------------------------ */
+
+.switch-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: fit-content;
+    align-items: center;
+    grid-column: 1 / -1;
+    place-self: center;
+}
+
+.switch-button {
+    --animation-duration: 300ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.25rem;
+    border-radius: 1.25rem;
+    position: relative;
+    border: #0060df solid 2px;
+    transition: background-color var(--animation-duration);
+}
+
+.switch-button input[type="checkbox"]:checked+label {
+    background-color: white;
+    transform: translateX(-50%);
+}
+.switch-button input[type="checkbox"]:not(:checked)+label {
+    transform: translateX(50%);
+}
+
+.switch-button input {
+    height: 100%;
+    width: 100%;
+    border-radius: 1.25rem;
+    appearance: none;
+    margin: 0;
+}
+
+.switch-dot {
+    position: absolute;
+    border-radius: 100%;
+    background-color: #0060df;
+    height: calc(100% - 2px);
+    aspect-ratio: 1/1;
+    transition: all var(--animation-duration);
+}
+
+/* ------------------------ */

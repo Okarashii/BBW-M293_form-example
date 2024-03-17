@@ -12,6 +12,19 @@ function App() {
     const [extraOnions, setExtraOnions] = useState(false);
     const [isLandscape, setIsLandscape] = useState(true);
 
+    const gaConditionList = [
+        "Erwachsene 25-64/65 Jahre",
+        "Senior ab 64/65 Jahre",
+        "Junior 16-25 Jahre",
+        "Junior Studierende 25-30 Jahre",
+        "Reisende mit Behinderung",
+        "Kind 6-16 Jahre",
+        "Duo Partner",
+        "Familia Kind 6-16 Jahre",
+        "Familia Jugend 16-25 Jahre",
+        "Familia Partner"
+    ];
+
     const onSubmit = (event) => {
         // Sobald der Submit-Button geklickt wird, werden die States der einzelnen components hier verarbeitet.
         console.log("Flash: ", flash);
@@ -22,20 +35,24 @@ function App() {
 
     return (
         <>
-            <form onSubmit={onSubmit} className="app">
-                <h3 className="app-title">Aufgabe 1</h3>
-                <Flash flash={flash} setFlash={setFlash}/>
+            <div className="app">
+                <form onSubmit={onSubmit} className="app">
+                    <h3 className="app-title">Aufgabe 1</h3>
+                    <Flash flash={flash} setFlash={setFlash}/>
 
-                <h3 className="app-title">Aufgabe 1.1</h3>
-                <PizzaToppings extraCheese={extraCheese} extraOnions={extraOnions} setExtraCheese={setExtraCheese} setExtraOnions={setExtraOnions}/>
+                    <h3 className="app-title">Aufgabe 1.1</h3>
+                    <PizzaToppings extraCheese={extraCheese} extraOnions={extraOnions} setExtraCheese={setExtraCheese} setExtraOnions={setExtraOnions}/>
 
-                <h3 className="app-title">Aufgabe 1.2</h3>
-                <ScreenOrientation isLandscape={isLandscape} setIsLandscape={setIsLandscape}/>
+                    <h3 className="app-title">Aufgabe 1.2</h3>
+                    <ScreenOrientation isLandscape={isLandscape} setIsLandscape={setIsLandscape}/>
 
-                <button className="submit-button" type="submit">Absenden</button>
-            </form>
+                    <button className="submit-button" type="submit">Absenden</button>
+                </form>
 
-            <GAForm/>
+                <hr style={{width: '100%'}}/>
+
+                <GAForm conditionList={gaConditionList}/>
+            </div>
         </>
     );
 }
