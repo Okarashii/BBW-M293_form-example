@@ -1,0 +1,22 @@
+.flash-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+    width: fit-content;
+}
+
+.flash-wrapper * {
+    width: fit-content;
+}
+
+.flash-wrapper input {
+    justify-self: end;
+}
+
+.flash-wrapper label {
+    justify-self: start;
+}
+
+input[type="radio"].flash-input:checked+label.flash-label {
+    font-weight: bolder;
+}

@@ -1,0 +1,18 @@
+.checkboxes-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+    width: fit-content;
+}
+
+.checkboxes-wrapper > * {
+    width: fit-content;
+}
+
+.checkboxes-wrapper input {
+    justify-self: end;
+}
+
+.checkboxes-wrapper label {
+    justify-self: start;
+}
