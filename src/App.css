@@ -103,3 +103,7 @@ input[type="radio"].flash-input:checked+label.flash-label {
     aspect-ratio: 1/1;
     transition: all var(--animation-duration);
 }
+
+.submit-button {
+    margin-top: 1rem;
+}

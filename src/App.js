@@ -1,22 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 
-function DebugButton({log}) {
-    function debug(output) {
-        for(const [label, value] of output) {
-            console.log(`${label}:`, value);
-        }
-    }
-
-    return (
-        <button className="debug-button" onClick={() => debug(log)}>Debug Output</button>
-    )
-}
-
 // Aufgabe 1a
-function Flash() {
-    const [flash, setFlash] = useState(false);
-
+function Flash({flash, setFlash}) {
     return (
         <>
             <div className="flash-wrapper">
@@ -30,16 +16,12 @@ function Flash() {
                 </label>
 
             </div>
-            <DebugButton log={[["Flash", flash]]}/>
         </>
     );
 }
 
 // Aufgabe 1.1a
-function CheckBoxes() {
-    const [extraCheese, setExtraCheese] = useState(false);
-    const [extraOnions, setExtraOnions] = useState(false);
-
+function PizzaToppings({ extraCheese, setExtraCheese, extraOnions, setExtraOnions}) {
     return (
         <>
             <div className="checkboxes-wrapper">
@@ -49,15 +31,12 @@ function CheckBoxes() {
                 <input id="cb-onions" type="checkbox" checked={extraOnions} onChange={() => setExtraOnions((o) => !o)}/>
                 <label htmlFor="cb-onions">Extra Zwiebeln</label>
             </div>
-            <DebugButton log={[["Extra Cheese", extraCheese],["Extra Onions", extraOnions]]}/>
         </>
     );
 }
 
 // Aufgabe 1.2a
-function ScreenOrientation() {
-    const [isLandscape, setIsLandscape] = useState(true);
-
+function ScreenOrientation({isLandscape, setIsLandscape}) {
     return (
         <>
             <div className="switch-wrapper">
@@ -68,23 +47,38 @@ function ScreenOrientation() {
                 </div>
                 <label htmlFor="orientation">Portrait</label>
             </div>
-            <DebugButton log={[["Screen Orientation", isLandscape]]}/>
         </>
     );
 }
 
 function App() {
+    // Den Components werden diese States als props übergeben, sodass 'App' zugriff auf deren Werte hat.
+    const [flash, setFlash] = useState(false);
+    const [extraCheese, setExtraCheese] = useState(false);
+    const [extraOnions, setExtraOnions] = useState(false);
+    const [isLandscape, setIsLandscape] = useState(true);
+
+    const onSubmit = (event) => {
+        // Sobald der Submit-Button geklickt wird, werden die States der einzelnen components hier verarbeitet.
+        console.log("Flash: ", flash);
+        console.log("Extra Cheese: ", extraCheese);
+        console.log("Extra Onions: ", extraOnions);
+        console.log("Orientation: ", isLandscape);
+    }
+
     return (
-        <div className="app">
+        <form onSubmit={onSubmit} className="app">
             <h3 className="app-title">Aufgabe 1</h3>
-            <Flash />
+            <Flash flash={flash} setFlash={setFlash}/>
 
             <h3 className="app-title">Aufgabe 1.1</h3>
-            <CheckBoxes />
+            <PizzaToppings extraCheese={extraCheese} extraOnions={extraOnions} setExtraCheese={setExtraCheese} setExtraOnions={setExtraOnions}/>
 
             <h3 className="app-title">Aufgabe 1.2</h3>
-            <ScreenOrientation/>
-        </div>
+            <ScreenOrientation isLandscape={isLandscape} setIsLandscape={setIsLandscape}/>
+
+            <button className="submit-button" type="submit">Absenden</button>
+        </form>
     );
 }
 
