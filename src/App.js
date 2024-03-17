@@ -12,17 +12,17 @@ function App() {
     const [extraOnions, setExtraOnions] = useState(false);
     const [isLandscape, setIsLandscape] = useState(true);
 
-    const gaConditionList = [
-        "Erwachsene 25-64/65 Jahre",
-        "Senior ab 64/65 Jahre",
-        "Junior 16-25 Jahre",
-        "Junior Studierende 25-30 Jahre",
-        "Reisende mit Behinderung",
-        "Kind 6-16 Jahre",
-        "Duo Partner",
-        "Familia Kind 6-16 Jahre",
-        "Familia Jugend 16-25 Jahre",
-        "Familia Partner"
+    const gaPriceTable = [
+        {label: "Erwachsene 25-64/65 Jahre",        priceMonthly1: 545, priceMonthly2: 340, priceYearly1: 6300, priceYearly2: 2860},
+        {label: "Senior ab 64/65 Jahre",            priceMonthly1: 430, priceMonthly2: 240, priceYearly1: 4840, priceYearly2: 2880},
+        {label: "Junior 16-25 Jahre",               priceMonthly1: 405, priceMonthly2: 245, priceYearly1: 4520, priceYearly2: 2650},
+        {label: "Junior Studierende 25-30 Jahre",   priceMonthly1: 405, priceMonthly2: 245, priceYearly1: 4520, priceYearly2: 2650},
+        {label: "Reisende mit Behinderung",         priceMonthly1: 355, priceMonthly2: 225, priceYearly1: 4050, priceYearly2: 2480},
+        {label: "Kind 6-16 Jahre",                  priceMonthly1: 250, priceMonthly2: 160, priceYearly1: 2760, priceYearly2: 1645},
+        {label: "Duo Partner",                      priceMonthly1: 380, priceMonthly2: 245, priceYearly1: 4340, priceYearly2: 2700},
+        {label: "Familia Kind 6-16 Jahre",          priceMonthly1: 250, priceMonthly2: 75,  priceYearly1: 2760, priceYearly2: 680},
+        {label: "Familia Jugend 16-25 Jahre",       priceMonthly1: 255, priceMonthly2: 95,  priceYearly1: 2790, priceYearly2: 925},
+        {label: "Familia Partner",                  priceMonthly1: 310, priceMonthly2: 200, priceYearly1: 3520, priceYearly2: 2180},
     ];
 
     const onSubmit = (event) => {
@@ -51,7 +51,7 @@ function App() {
 
                 <hr style={{width: '100%'}}/>
 
-                <GAForm conditionList={gaConditionList}/>
+                <GAForm priceTable={gaPriceTable}/>
             </div>
         </>
     );
