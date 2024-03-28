@@ -34,9 +34,22 @@ function App() {
     }
 
     return (
-        <>
-            <div className="app">
-                <form onSubmit={onSubmit} className="app">
+        <div className="app">
+            <nav className="app-nav">
+                <ul>
+                    <li>
+                        <input type="radio" name="navTab" id="navTab0" value={0} defaultChecked/>
+                        <label htmlFor="navTab0">Aufgaben 1-3</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="navTab" id="navTab1" value={1}/>
+                        <label htmlFor="navTab1">Aufgaben GA-Form</label>
+                    </li>
+                </ul>
+            </nav>
+
+            <div className="app-body">
+                <form onSubmit={onSubmit} id="app-form-tasks">
                     <h3 className="app-title">Aufgabe 1</h3>
                     <Flash flash={flash} setFlash={setFlash}/>
 
@@ -49,11 +62,14 @@ function App() {
                     <button className="submit-button" type="submit">Absenden</button>
                 </form>
 
-                <hr style={{width: '100%'}}/>
+                {/* <hr style={{width: '100%'}}/> */}
 
-                <GAForm priceTable={gaPriceTable}/>
+                <div id="app-form-ga">
+                    <GAForm priceTable={gaPriceTable}/>
+
+                </div>
             </div>
-        </>
+        </div>
     );
 }
 

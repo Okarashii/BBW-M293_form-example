@@ -1,3 +1,8 @@
+:root {
+    background-color: #0f172a;
+    color: white;
+}
+
 .app {
     text-align: center;
     display: flex;
@@ -6,10 +11,63 @@
     align-items: center;
 }
 
+.app-nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: 1px black solid;
+    height: 4rem;
+    align-items: center;
+}
+
+.app-nav ul {
+    display: flex;
+    flex-direction: row;
+    /* gap: 1rem; */
+}
+
+.app-nav input[type=radio] {
+    display: none;
+}
+
+.app-nav label {
+    padding: 0.75rem 1rem;
+    border-bottom: 3px solid black;
+    border-radius: 6px 6px 0px 0px;
+    cursor: pointer;
+    background-color: #262626;
+}
+
+.app-nav label:hover {
+    filter: brightness(0.75);
+}
+
+.app-nav input[type=radio]:checked+label {
+    background-color: #3f3f46;
+    border-bottom: 3px solid blueviolet;
+}
+
+.app-nav li {
+    list-style: none;
+}
+
 .app-title {
     width: fit-content;
 }
 
+.app-body {
+    margin-top: 4rem;
+}
+
 .submit-button {
     margin-top: 1rem;
+}
+
+#app-form-tasks {
+
+}
+
+#app-form-ga {
+    display: none;
 }
